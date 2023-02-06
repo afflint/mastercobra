@@ -8,7 +8,8 @@ gelati_van = FoodVan("Ice Cream Van", "17 x 14 x 12", "legno", 20)
 # creo l'istanza di tipo Cliente
 marco = Cliente("mark00", 1234)
 
-# aggiungo l'istanza di tipo FoodVan al carrello di Marco
+# aggiungo le istanze di tipo FoodVan al carrello di Marco: 
+# aggiungo gelati_van 10 volte e donut_van 2 volte e verifico il contenuto del carrello
 for i in range(10):
     gelati_van.add_to_cart(marco)
 donut_van.add_to_cart(marco)
