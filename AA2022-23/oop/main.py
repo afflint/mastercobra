@@ -18,7 +18,7 @@ print(f"Carrello di Marco: {marco.cart}")
 # creo l'istanza di tipo Batteria
 batteria = Batteria("Gecoty", "6V")
 
-# ricarico la Batteria
+# ricarico l'oggetto batteria
 batteria.recharge()
 
 # creo l'istanza di tipo RaceCar
