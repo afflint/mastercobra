@@ -1,10 +1,24 @@
 from collections import defaultdict
 
+import numpy as np
+
 
 def change_char(name, new_char, wrong_char_pos=0):
     new_name = name[:wrong_char_pos] + new_char + \
                name[wrong_char_pos+1:]
     return new_name, name
+
+
+def generate_word(alpha, term=None):
+    if term is None:
+        term = {'.'}
+    char = None
+    output = []
+    while char not in term:
+        i = np.random.randint(low=0, high=len(alpha))
+        char = alpha[i]
+        output.append(char)
+    return "".join(output)
 
 
 class CharIndex(object):
@@ -40,8 +54,12 @@ class CharIndex(object):
     def size(self):
         return sum(self.index.values())
 
+    @property
     def vocabulary(self):
         return list(self.index.keys())
 
     def p(self, char):
-        return self.index[char] / self.size()
+        try:
+            return self.index[char] / self.size()
+        except ZeroDivisionError:
+            return np.nan
